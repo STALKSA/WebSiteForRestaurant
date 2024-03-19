@@ -1,40 +1,43 @@
-<!-- Здесь разместите модули и разделы главной страницы -->
-<div id="header">
-    <!-- Здесь разместите логотип и навигацию -->
-</div>
+<?php include('templates/header.php'); ?>
 
-<div id="restaurant-module">
-    <!-- Здесь разместите модуль с заголовком ресторан -->
-</div>
+<link rel="stylesheet" href="assets/css/style.css">
 
-<div id="about-module">
-    <!-- Здесь разместите модуль "О нас" с кнопкой связаться с нами -->
-</div>
+<section id="restaurant-module">
+    <div class="container">
+        <h2>Ресторан</h2>
+        <p>Описание ресторана...</p>
+    </div>
+</section>
 
-<!-- Добавьте другие модули аналогичным образом -->
 
-<div id="footer">
-    <!-- Здесь добавьте футер, контакты и форму заказа столика -->
-    <h2>Забронировать столик</h2>
-    <?php echo form_open('restaurant/reserve_table'); ?>
+<!-- Модуль "О нас" -->
+<section id="about-module">
+    <div class="container">
+        <h2>О нас</h2>
+        <div class="about-info">
+            <div class="about-image">
+                <img src="path_to_your_image1" alt="Image 1">
+            </div>
+            <div class="about-image">
+                <img src="path_to_your_image2" alt="Image 2">
+            </div>
+            <p>Описание о нас...</p>
+        </div>
+    </div>
+</section>
 
-    <label for="name">Ваше имя:</label>
-    <input type="text" name="name" required>
 
-    <label for="phone">Ваш телефон:</label>
-    <input type="tel" name="phone" required>
+<!-- Модуль "Меню" -->
+<section id="menu-module">
+    <div class="container">
+        <h2>Меню</h2>
+        <div class="menu-info">
+            <img src="path_to_your_menu_image" alt="Menu Image">
+            <p>Описание меню...</p>
+            <a href="#" class="btn-reserve">Забронировать столик</a>
+        </div>
+    </div>
+</section>
 
-    <label for="date">Дата:</label>
-    <input type="date" name="date" required>
 
-    <label for="time">Время:</label>
-    <input type="time" name="time" required>
-
-    <label for="message">Сообщение:</label>
-    <textarea name="message"></textarea>
-
-    <button type="submit">Забронировать столик</button>
-
-    <?php echo form_close(); ?>
-
-</div>
+<?php include('templates/footer.php'); ?>

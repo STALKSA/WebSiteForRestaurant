@@ -1,0 +1,231 @@
+/* Стили для хедера */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex; /* Добавляем flex-контейнер для элементов хедера */
+    justify-content: space-between; /* Равномерно распределяем элементы по ширине */
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+
+    margin: 0; /* Убираем отступы у списка */
+    padding: 0; /* Убираем внутренние отступы у списка */
+    display: flex; /* Делаем меню flex-контейнером */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.buttons {
+    display: flex; /* Делаем контейнер для кнопок flex-контейнером */
+}
+
+.btn-reserve,
+.btn-contact {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: #ff6347;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Стили для модулей */
+section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.menu-info img {
+    float: left;
+    margin-right: 20px;
+    max-width: 300px;
+    height: auto;
+}
+
+
+/* Стили для футера */
+#footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex; /* Добавляем flex-контейнер для элементов футера */
+    justify-content: space-between; /* Равномерно распределяем элементы по ширине */
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
+}
+
+.contact-info {
+    flex: 1; /* Растягиваем этот блок на всю доступную ширину */
+}
+
+.contact-info p {
+    margin: 0; /* Убираем отступы */
+}
+
+.reserve-form {
+    flex: 1; /* Растягиваем этот блок на всю доступную ширину */
+}
+
+/* Стили для формы бронирования */
+.reserve-form form {
+    background-color: #666;
+    padding: 20px;
+}
+
+.reserve-form form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.reserve-form form input[type="text"],
+.reserve-form form input[type="tel"],
+.reserve-form form input[type="date"],
+.reserve-form form input[type="time"],
+.reserve-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.reserve-form form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff6347;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.reserve-form form button:hover {
+    background-color: #d63320;
+}
+
+/* Стили для контактной информации */
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info p:first-child {
+    margin-top: 0;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Стили для модуля "Ресторан" */
+#restaurant-module {
+    background-color: #f1f1f1;
+    padding: 50px 0;
+}
+
+#restaurant-module .container {
+    text-align: center;
+}
+
+/* Стили для модуля "О нас" */
+#about-module {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.about-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.about-info p {
+    flex: 2;
+    margin: 0 10px;
+}
+
+/* Стили для модуля "Меню" */
+#menu-module {
+    background-color: #f1f1f1;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.menu-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-info img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.menu-info p {
+    margin-bottom: 20px;
+}
