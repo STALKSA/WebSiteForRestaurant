@@ -50,7 +50,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['default_controller'] = 'restaurant';
-$route['restaurant/reserve_table'] = 'restaurant/reserve_table';
+$route['default_controller'] = 'pages';
+$route['pages/reserve_table'] = 'pages/reserve_table';
+$route['pages/about'] = 'pages/restoran';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Restaurant extends CI_Controller
+class Pages extends CI_Controller
 {
 
     public function index()
@@ -9,6 +9,14 @@ class Restaurant extends CI_Controller
         // Здесь будем отображать главную страницу
         $this->load->view('templates/header');
         $this->load->view('templates/home');
+        $this->load->view('templates/footer');
+    }
+
+    public function restoran()
+    {
+        // Здесь будем отображать страницу "О нас"
+        $this->load->view('templates/header');
+        $this->load->view('templates/about');
         $this->load->view('templates/footer');
     }
 

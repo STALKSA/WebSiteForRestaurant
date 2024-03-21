@@ -1,3 +1,5 @@
+
+
 <div id="footer">
     <div class="container-footer">
         <div class="contact-info">
@@ -27,5 +29,11 @@
 
             <?php echo form_close(); ?>
         </div>
+    </div>    
+    <div class="social-icons">
+        <a href="#" class="social-icon"><img src="path_to_facebook_icon" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="path_to_instagram_icon" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="path_to_vk_icon" alt="VKontakte"></a>
+        <a href="#" class="social-icon"><img src="path_to_telegram_icon" alt="Telegram"></a>
     </div>
 </div>

@@ -26,6 +26,27 @@
     </div>
 </section>
 
+<!-- Модуль "Наш сервис" -->
+<section id="service-module">
+    <div class="container">
+        <div class="service-content">
+            <div class="service-item">
+                <img src="path_to_icon1" alt="Icon 1">
+                <h3>Сервис 1</h3>
+            </div>
+            <div class="service-item">
+                <img src="path_to_icon2" alt="Icon 2">
+                <h3>Сервис 2</h3>
+            </div>
+            <div class="service-item">
+                <img src="path_to_icon3" alt="Icon 3">
+                <h3>Сервис 3</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 <!-- Модуль "Меню" -->
 <section id="menu-module">

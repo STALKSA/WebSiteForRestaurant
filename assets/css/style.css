@@ -21,16 +21,17 @@ header {
 
 nav ul {
     list-style-type: none;
-
-    margin: 0; /* Убираем отступы у списка */
-    padding: 0; /* Убираем внутренние отступы у списка */
-    display: flex; /* Делаем меню flex-контейнером */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start; /* Изменяем выравнивание на начало контейнера */
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block; /* Изменяем на inline-block */
     margin-right: 20px;
 }
+
 
 nav ul li a {
     text-decoration: none;
@@ -154,6 +155,27 @@ h2 {
     background-color: #d63320;
 }
 
+/* Стили для блока с иконками социальных сетей */
+.social-icons {
+    display: flex;
+    
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 1150px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    display: inline-block; /* Чтобы элементы были в одной линии */
+}
+
+.social-icon img {
+    width: 20px; /* Размер иконок */
+    height: 20px; /* Размер иконок */
+}
+
+
+
 /* Стили для контактной информации */
 .contact-info p {
     margin: 10px 0;
@@ -206,6 +228,38 @@ h2 {
     margin: 0 10px;
 }
 
+/* Стили для модуля "Наш сервис" */
+#service-module {
+    background-image: url('path_to_background_image');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding: 100px 0;
+}
+
+.service-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.service-item {
+    text-align: center;
+    flex: 1;
+}
+
+.service-item img {
+    width: 80px; /* Размер иконок */
+    height: 80px; /* Размер иконок */
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
 /* Стили для модуля "Меню" */
 #menu-module {
     background-color: #f1f1f1;
@@ -228,4 +282,58 @@ h2 {
 
 .menu-info p {
     margin-bottom: 20px;
+}
+
+
+
+/* Стили для модуля "О Нас" */
+#about-us {
+    background-image: url('path_to_about_image');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* Стили для модуля "История" */
+#history {
+    padding: 50px 0;
+}
+
+.history-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.history-images {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.history-images img {
+    width: 48%;
+}
+
+/* Стили для модуля "Еще немного слов" */
+#more-words {
+    background-color: #f1f1f1;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.btn-menu {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
 }
