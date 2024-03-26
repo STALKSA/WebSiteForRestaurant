@@ -53,5 +53,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'pages';
 $route['pages/reserve_table'] = 'pages/reserve_table';
 $route['pages/about'] = 'pages/restoran';
+$route['pages/menu'] = 'pages/menu';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
