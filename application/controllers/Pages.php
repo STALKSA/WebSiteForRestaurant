@@ -28,6 +28,14 @@ class Pages extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function interior()
+    {
+        // Здесь будем отображать страницу "Интерьер"
+        $this->load->view('templates/header');
+        $this->load->view('templates/interior');
+        $this->load->view('templates/footer');
+    }
+
 
     public function reserve_table()
     {

@@ -8,7 +8,7 @@
                 <li><a href="/restoran/">ГЛАВНАЯ</a></li>
                 <li><a href="<?php echo site_url('pages/about'); ?>">О НАС</a></li>
                 <li><a href="<?php echo site_url('pages/menu'); ?>">МЕНЮ</a></li>
-                <li><a href="#">ИНТЕРЬЕР</a></li>
+                <li><a href="<?php echo site_url('pages/interior'); ?>">ИНТЕРЬЕР</a></li>
                 <li><a href="#">КОНТАКТЫ</a></li>
             </ul>
         </nav>
