@@ -55,5 +55,6 @@ $route['pages/reserve_table'] = 'pages/reserve_table';
 $route['pages/about'] = 'pages/restoran';
 $route['pages/menu'] = 'pages/menu';
 $route['pages/interior'] = 'pages/interior'; 
+$route['pages/contacts'] = 'pages/contacts'; 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

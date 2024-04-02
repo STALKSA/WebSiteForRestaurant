@@ -36,6 +36,13 @@ class Pages extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function contacts()
+    {
+        // Здесь будем отображать страницу "Контакты"
+        $this->load->view('templates/header');
+        $this->load->view('templates/contacts');
+        $this->load->view('templates/footer');
+    }
 
     public function reserve_table()
     {
