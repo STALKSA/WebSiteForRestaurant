@@ -95,9 +95,26 @@ h2 {
 
 /* Стили для футера */
 #footer {
-    background-color: #333;
+    position: relative; /* Добавьте это свойство */
+    /* background-image: url('../img/back_img_for_footer_module.jpg'); */
+
+    background-position: center;
     color: #fff;
     padding: 50px 0;
+}
+
+#footer .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/back_img_for_footer_module.jpg'); /* Путь к изображению */
+    background-size: cover; /* Размер изображения */
+    background-position: center; /* Позиционирование изображения */
+    opacity: 0.8; /* Полупрозрачность для эффекта дымки */
+    z-index: -1; /* Расположить позади остальных элементов */
+
 }
 
 .container-footer {
@@ -459,22 +476,42 @@ h2 {
 }
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Стили для модуля "Контакты" */
 #contacts {
     background-image: url('path_to_contacts_background_image'); /* Замените 'path_to_contacts_background_image' на путь к вашему фоновому изображению */
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: black;
     padding: 100px 0;
-    text-align: center;
+    text-align: left;
+}
+
+#contacts h2,
+#contacts p {
+    text-align: left; /* Выравнивает текст по левому краю */
+    margin: 0; /* Убирает отступы по умолчанию */
 }
 
 #contacts h2 {
-    margin-bottom: 20px;
+
+    text-align: left;
+    margin: 0; /* Уберите отступы */
+    margin-top: 10px; /* Создает отступ сверху текста */
+    
 }
 
 #contacts p {
-    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    margin: 0; /* Уберите отступы */
+    margin-top: 10px; /* Отступ сверху для элемента p */
+   
 }
 
 /* Стили для модуля "Детали контактов" */
@@ -483,13 +520,15 @@ h2 {
 }
 
 .contact-info {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    /* display: flex; */
+    text-align: left; /* Выровняйте весь контейнер по левому краю */
+    margin: 0; /* Убедитесь, что нет внешних отступов, которые могут повлиять на выравнивание */
 }
 
 .contact-item {
-    text-align: center;
+    width: 100%; /* Заставляет каждый блок занимать всю ширину контейнера */
+    margin-bottom: 20px; /* Отступ между элементами */
+    text-align: left; /* Выровнять текст внутри каждого блока по левому краю */
 }
 
 .contact-item h3 {
@@ -508,4 +547,41 @@ h2 {
 #map iframe {
     margin: 0 auto;
     display: block;
+}
+
+/* колаж картинок в контакты */
+.image-collage {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.collage-image {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.collage-image:hover {
+    opacity: 0.7;
+}
+
+/* увеличение изображений в колаж картинок в контакты */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enlarged-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    cursor: pointer;
 }

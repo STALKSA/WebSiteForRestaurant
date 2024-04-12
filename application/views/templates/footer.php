@@ -1,6 +1,7 @@
 
 
 <div id="footer">
+<div class="background-overlay"></div> <!-- Новый элемент -->
     <div class="container-footer">
         <div class="contact-info">
             <p>Телефон: +123456789</p>
