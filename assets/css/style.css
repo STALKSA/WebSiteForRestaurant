@@ -360,7 +360,7 @@ h2 {
     background-image: url('path_to_background_image'); /* Замените 'path_to_background_image' на путь к вашему изображению */
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: black;
     padding: 100px 0;
     text-align: center;
 }
@@ -433,53 +433,99 @@ h2 {
     display: inline-block;
     padding: 10px 20px;
     background-color: #ff6347;
-    color: #fff;
+    color: black;
     text-decoration: none;
     border-radius: 5px;
 }
 
 /* Стили для модуля "Интерьер" */
+
+
 #interior {
-    background-image: url('path_to_interior_background_image'); /* Замените 'path_to_interior_background_image' на путь к вашему фоновому изображению */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 100px 0;
+    position: relative; /* Позволяет позиционировать фон */
+    padding: 100px 0; /* Установка отступа сверху и снизу */
+    text-align: center; /* Центрирование текста */
+    box-sizing: border-box; /* Включение границ в ширину */
+    color: black; /* Цвет текста */
+}
+
+#interior .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/interier6.jpg'); /* Путь к вашему фоновому изображению */
+    background-repeat: no-repeat; /* Не повторять изображение фона */
+    background-size: cover; /* Масштабировать изображение, чтобы покрыть всю секцию */
+    background-position: center; /* Центрировать изображение */
+    opacity: 0.5; /* Полупрозрачность для эффекта дымки */
+    z-index: -1; /* Позади остальных элементов */
+}
+
+#interior-header {
     text-align: center;
-}
-
-#interior h2 {
     margin-bottom: 20px;
 }
 
-#interior h3 {
-    margin-bottom: 20px;
+#interior-header h2 {
+    margin-bottom: 10px; /* Отступ снизу от заголовка h2 */
 }
 
+#interior-header h3 {
+    margin-top: 0; /* Убирает отступ сверху от заголовка h3 */
+}
+
+/* Стили для контейнера с фотографиями */
 #photos {
+    flex: 1; /* Секция занимает 50% ширины контейнера */
     padding: 50px 0;
+    text-align: center;
+    box-sizing: border-box;
 }
 
+/* Стили для фотомакета */
 .photo-row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap; /* Позволяет фотографиям переноситься на новую строку */
+    justify-content: center; /* Центрирует фотографии по горизонтали */
+    gap: 5px; /* Устанавливает отступ между фотографиями */
 }
 
 .photo-item {
-    margin: 10px;
+    margin-left: 2.5px; /* Уменьшает отступ слева */
+    margin-right: 2.5px; /* Уменьшает отступ справа */
 }
 
 .photo-item img {
-    max-width: 100%;
-    height: auto;
+    width: auto; /* Автоматическая ширина */
+    height: auto; /* Автоматическая высота */
+    object-fit: cover; /* Обрезает изображения, чтобы они поместились в контейнер */
 }
 
+/* Задание разных размеров для отдельных фотографий */
+.photo-item:nth-child(1) img {
+    width: 300px; /* Ширина первого изображения */
+    height: 200px; /* Высота первого изображения */
+}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.photo-item:nth-child(2) img {
+    width: 200px; /* Ширина второго изображения */
+    height: 200px; /* Высота второго изображения */
+}
+
+.photo-item:nth-child(3) img {
+    width: 200px; /* Ширина второго изображения */
+    height: 150px; /* Высота второго изображения */
+}
+.photo-item:nth-child(4) img {
+    width: 200px; /* Ширина второго изображения */
+    height: 150px; /* Высота второго изображения */
+}
+
+.photo-item:nth-child(5) img {
+    width: 200px; /* Ширина второго изображения */
+    height: 150px; /* Высота второго изображения */
 }
 
 /* Стили для модуля "Контакты" */
