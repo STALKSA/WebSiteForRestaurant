@@ -1,0 +1,181 @@
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+}
+
+.form-section > * {
+  flex: 1 1 0;
+}
+
+.form-section .section-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-section .form > h2 {
+  margin: 0;
+}
+
+.form-section .form > p {
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.field.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--black-color);
+  padding: 0;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked {
+  background-color: var(--black-color);
+}
+
+input[type='checkbox']::before {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white-color);
+  font-size: 12px;
+}
+input[type='checkbox']:checked::before {
+  display: block;
+}
+
+.form .error-type {
+  text-align: right;
+  color: red;
+  position: absolute;
+  right: 0;
+  display: none;
+  font-size: 12px;
+}
+
+.form .field.error.required .error-type.required-error,
+.form .field.error.invalid .error-type.invalid-error {
+  display: block;
+}
+
+.form .error input,
+.form .error textarea {
+  border-color: red;
+}
+
+.field.error input[type='number'] {
+  padding-right: 35px;
+}
+
+.form .field .fa-circle-exclamation {
+  display: none;
+}
+
+.form .field.error .fa-circle-exclamation {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  transform: translateY(6px);
+  cursor: pointer;
+}
+
+/* Captcha */
+
+.captcha-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.captcha-container > * {
+  flex: 1 1 0;
+}
+
+.captcha-container canvas {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.captcha-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.captcha-content input[name='captcha'] {
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.captcha-content .btn.secondary-btn.black:hover {
+  background: var(--white-color);
+}
+
+/* Info Block */
+
+.info-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 800px;
+  gap: 2rem;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1200px) {
+  .captcha-container {
+    flex-direction: column;
+  }
+
+  .captcha-container > * {
+    width: 100%;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .form-section {
+    flex-direction: column;
+  }
+
+  .form-section > * {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 452px) {
+  .captcha-container canvas {
+    width: 100%;
+    object-fit: cover;
+  }
+}

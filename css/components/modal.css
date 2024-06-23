@@ -1,0 +1,28 @@
+.modal[open] {
+  background-color: rgba(0, 0, 0, 0.3);
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 300ms ease, opacity 300ms ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--graywhite-color);
+  transition: transform 500ms ease;
+}
