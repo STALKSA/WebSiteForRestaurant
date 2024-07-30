@@ -18,13 +18,13 @@
 		</div>
 
 		<div class="subscribe-form">
-			<form action="" method="post">
-				<input id="subscribe-email" type="email" placeholder="Введите свой e-mail" aria-labelledby="subscribe-title">
-				<button class="btn secondary-btn white" type="submit">Подписаться</button>
-			</form>
-
-			<p>Подписываясь, вы соглашаетесь с нашей <a href="index.php?action=privacy-policy">Политикой конфиденциальности</a></p>
-		</div>
+            <form id="subscribe-form">
+                <input id="email" type="email" placeholder="Введите свой e-mail" aria-labelledby="subscribe-title" required>
+                <button class="btn secondary-btn white" type="submit">Подписаться</button>
+            </form>
+            <p id="subscription-message" style="display: none;"></p>
+            <p>Подписываясь, вы соглашаетесь с нашей <a href="index.php?action=privacy-policy">Политикой конфиденциальности</a></p>
+    </div>
 	</div>
 
 	<div class="information">
@@ -63,6 +63,48 @@
 <script src="js/menu.js" type="module"></script>
 <script src="js/captcha.js" type="module"></script>
 <script src="js/components/modal.js" type="module"></script>
-</body>
+<script>
+    document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем перезагрузку страницы
 
+        var email = document.getElementById('email').value;
+        var messageElement = document.getElementById('subscription-message');
+
+        if (email) {
+            fetch('src/subscribe.php', { // Указание правильного пути к subscribe.php
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'email=' + encodeURIComponent(email)
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'success') {
+                    messageElement.textContent = 'Спасибо за подписку!';
+                    messageElement.style.display = 'block';
+                    messageElement.style.color = 'green';
+                } else if (data === 'invalid') {
+                    messageElement.textContent = 'Пожалуйста, введите корректный email.';
+                    messageElement.style.display = 'block';
+                    messageElement.style.color = 'red';
+                } else {
+                    messageElement.textContent = 'Произошла ошибка. Попробуйте позже. ' + data;
+                    messageElement.style.display = 'block';
+                    messageElement.style.color = 'red';
+                }
+            })
+            .catch(error => {
+                messageElement.textContent = 'Произошла ошибка. Попробуйте позже. ' + error;
+                messageElement.style.display = 'block';
+                messageElement.style.color = 'red';
+            });
+        } else {
+            messageElement.textContent = 'Пожалуйста, введите корректный email.';
+            messageElement.style.display = 'block';
+            messageElement.style.color = 'red';
+        }
+    });
+</script>
+</body>
 </html>
