@@ -11,7 +11,8 @@ const PAGE_TITLES = [
 	"search" => "Результаты поиска",
 	"view-dish" => "Просмотреть блюдо | MyRestaurant",
 	"edit-dish" => "Редактировать блюдо | MyRestaurant",
-	"delete-dish" => "Удалить блюдо | MyRestaurant"
+	"delete-dish" => "Удалить блюдо | MyRestaurant",
+	"privacy-policy" => "Политика | MyRestaurant"
 ];
 
 const UPLOADS_DIR = "uploads/";

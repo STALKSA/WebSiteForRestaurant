@@ -23,7 +23,7 @@
 				<button class="btn secondary-btn white" type="submit">Подписаться</button>
 			</form>
 
-			<p>Подписываясь, вы соглашаетесь с нашей <a href="">Политикой конфиденциальности</a></p>
+			<p>Подписываясь, вы соглашаетесь с нашей <a href="index.php?action=privacy-policy">Политикой конфиденциальности</a></p>
 		</div>
 	</div>
 
@@ -31,7 +31,7 @@
 		<div class="system-pages">
 			<p>2024 MyRestaurant. Все права защищены.</p>
 			<div>
-				<a href="">Политика конфиденциальности</a>
+				<a href="index.php?action=privacy-policy">Политика конфиденциальности</a>
 				<!-- <a href="">Terms of Service</a>
 				<a href="">Cookies Settings</a> -->
 			</div>
