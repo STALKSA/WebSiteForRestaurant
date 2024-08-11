@@ -50,7 +50,7 @@
 			</nav>
 
 			<form class="search-container" method="post">
-				<input type="search" placeholder="Search" name="search-query">
+				<input type="search" placeholder="Поиск" name="search-query">
 				<button type="submit"></button>
 			</form>
 
@@ -66,13 +66,13 @@
 								<a href="index.php?action=create-dish"><?= ActiveUser::isAdmin() ? "Create" : "Создать" ?> новое блюдо</a>
 							</li>
 							<li>
-								<a href="index.php?action=logout" style="color: red;">Log out</a>
+								<a href="index.php?action=logout" style="color: red;">Выйти</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 			<?php } else { ?>
-				<a class="btn primary-btn black" href="index.php?action=login">Log in</a>
+				<a class="btn primary-btn black" href="index.php?action=login">Войти</a>
 			<?php } ?>
 		</div>
 	</header>

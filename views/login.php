@@ -52,7 +52,7 @@ if (!is_null($foundUser)) {
 					<strong style="color: red">Email или пароль не валидны!</strong>
 				<?php } ?>
 
-				<button class="btn primary-btn black" type="submit">Log In</button>
+				<button class="btn primary-btn black" type="submit">Войти</button>
 			</form>
 		</section>
 	<?php } else { ?>
