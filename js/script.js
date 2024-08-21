@@ -1,3 +1,5 @@
+import Modal from './components/modal.js';
+
 if (document.getElementById('feedbacks-slider')) {
   const feedbacksSlider = new Splide('#feedbacks-slider', {
     perPage: 3,
@@ -48,3 +50,39 @@ document.querySelector('.search-container').addEventListener('submit', (e) => {
   e.preventDefault();
   window.location.href = `index.php?action=search&q=${e.target.elements['search-query'].value}`;
 });
+
+
+
+// новый
+
+document.addEventListener('DOMContentLoaded', () => {
+	// Инициализация всех модальных окон
+	Modal.init();
+
+	// Обработчик формы бронирования
+	const form = document.getElementById('reservationForm');
+	form.addEventListener('submit', async function (e) {
+			e.preventDefault(); // Останавливаем стандартное поведение формы
+
+			const formData = new FormData(form);
+
+			try {
+					const response = await fetch('/reservation.php', {
+							method: 'POST',
+							body: formData
+					});
+
+					if (response.ok) {
+							alert('Бронирование успешно оформлено!');
+							form.reset();
+							window.modals['reservationModal'].hide(); // Закрываем модальное окно
+					} else {
+							alert('Ошибка при бронировании. Пожалуйста, попробуйте снова.');
+					}
+			} catch (error) {
+					console.error('Ошибка:', error);
+					alert('Ошибка при бронировании. Пожалуйста, попробуйте снова.');
+			}
+	});
+});
+

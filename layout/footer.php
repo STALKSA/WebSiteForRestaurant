@@ -106,5 +106,36 @@
         }
     });
 </script>
+
+
+<!-- Модальное окно для бронирования стола -->
+<div id="reservationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" data-click-mode="close">&times;</span>
+        <form id="reservationForm" method="post">
+            <h2>Бронирование стола</h2>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Время:</label>
+            <input type="time" id="time" name="time" required>
+            
+            <label for="guests">Количество гостей:</label>
+            <input type="number" id="guests" name="guests" required min="1">
+            
+            <button type="submit">Забронировать</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
