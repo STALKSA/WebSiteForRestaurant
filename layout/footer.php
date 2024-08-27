@@ -18,13 +18,13 @@
 		</div>
 
 		<div class="subscribe-form">
-            <form id="subscribe-form">
-                <input id="email" type="email" placeholder="Введите свой e-mail" aria-labelledby="subscribe-title" required>
-                <button class="btn secondary-btn white" type="submit">Подписаться</button>
-            </form>
-            <p id="subscription-message" style="display: none;"></p>
-            <p>Подписываясь, вы соглашаетесь с нашей <a href="index.php?action=privacy-policy">Политикой конфиденциальности</a></p>
-    </div>
+			<form id="subscribe-form">
+				<input id="email" type="email" placeholder="Введите свой e-mail" aria-labelledby="subscribe-title" required>
+				<button class="btn secondary-btn white" type="submit">Подписаться</button>
+			</form>
+			<p id="subscription-message" style="display: none;"></p>
+			<p>Подписываясь, вы соглашаетесь с нашей <a href="index.php?action=privacy-policy">Политикой конфиденциальности</a></p>
+		</div>
 	</div>
 
 	<div class="information">
@@ -64,78 +64,50 @@
 <script src="js/captcha.js" type="module"></script>
 <script src="js/components/modal.js" type="module"></script>
 <script>
-    document.getElementById('subscribe-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем перезагрузку страницы
+	document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+		event.preventDefault(); // Предотвращаем перезагрузку страницы
 
-        var email = document.getElementById('email').value;
-        var messageElement = document.getElementById('subscription-message');
+		var email = document.getElementById('email').value;
+		var messageElement = document.getElementById('subscription-message');
 
-        if (email) {
-            fetch('src/subscribe.php', { // Указание правильного пути к subscribe.php
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: 'email=' + encodeURIComponent(email)
-            })
-            .then(response => response.text())
-            .then(data => {
-                if (data === 'success') {
-                    messageElement.textContent = 'Спасибо за подписку!';
-                    messageElement.style.display = 'block';
-                    messageElement.style.color = 'green';
-                } else if (data === 'invalid') {
-                    messageElement.textContent = 'Пожалуйста, введите корректный email.';
-                    messageElement.style.display = 'block';
-                    messageElement.style.color = 'red';
-                } else {
-                    messageElement.textContent = 'Произошла ошибка. Попробуйте позже. ' + data;
-                    messageElement.style.display = 'block';
-                    messageElement.style.color = 'red';
-                }
-            })
-            .catch(error => {
-                messageElement.textContent = 'Произошла ошибка. Попробуйте позже. ' + error;
-                messageElement.style.display = 'block';
-                messageElement.style.color = 'red';
-            });
-        } else {
-            messageElement.textContent = 'Пожалуйста, введите корректный email.';
-            messageElement.style.display = 'block';
-            messageElement.style.color = 'red';
-        }
-    });
+		if (email) {
+			fetch('src/subscribe.php', { // Указание правильного пути к subscribe.php
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					body: 'email=' + encodeURIComponent(email)
+				})
+				.then(response => response.text())
+				.then(data => {
+					if (data === 'success') {
+						messageElement.textContent = 'Спасибо за подписку!';
+						messageElement.style.display = 'block';
+						messageElement.style.color = 'green';
+					} else if (data === 'invalid') {
+						messageElement.textContent = 'Пожалуйста, введите корректный email.';
+						messageElement.style.display = 'block';
+						messageElement.style.color = 'red';
+					} else {
+						messageElement.textContent = 'Произошла ошибка. Попробуйте позже. ' + data;
+						messageElement.style.display = 'block';
+						messageElement.style.color = 'red';
+					}
+				})
+				.catch(error => {
+					messageElement.textContent = 'Произошла ошибка. Попробуйте позже. ' + error;
+					messageElement.style.display = 'block';
+					messageElement.style.color = 'red';
+				});
+		} else {
+			messageElement.textContent = 'Пожалуйста, введите корректный email.';
+			messageElement.style.display = 'block';
+			messageElement.style.color = 'red';
+		}
+	});
 </script>
 
 
-<!-- Модальное окно для бронирования стола -->
-<div id="reservationModal" class="modal">
-    <div class="modal-content">
-        <span class="close" data-click-mode="close">&times;</span>
-        <form id="reservationForm" method="post">
-            <h2>Бронирование стола</h2>
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" name="phone" required>
-            
-            <label for="date">Дата:</label>
-            <input type="date" id="date" name="date" required>
-            
-            <label for="time">Время:</label>
-            <input type="time" id="time" name="time" required>
-            
-            <label for="guests">Количество гостей:</label>
-            <input type="number" id="guests" name="guests" required min="1">
-            
-            <button type="submit">Забронировать</button>
-        </form>
-    </div>
-</div>
-
 </body>
+
 </html>

@@ -6,7 +6,8 @@
 			Мы очень рады видеть вас здесь, и вся наша команда стремится обеспечить ваше
 			Обеденный опыт - не что иное, как экстраординарный.
 		</p>
-		<button class="btn secondary-btn black" data-modal-target="reservationModal" data-click-mode="open">Забронировать стол</button>
+		<button class="btn secondary-btn black">Забронировать стол</button>
+
 	</div>
 
 	<div class="section-image">
@@ -26,6 +27,6 @@
 			Мы очень рады видеть вас здесь, и вся наша команда стремится обеспечить ваше
 			Обеденный опыт - не что иное, как экстраординарный.
 		</p>
-		<button class="btn secondary-btn black" data-modal-target="reservationModal" data-click-mode="open">Забронировать стол</button>
+		<button class="btn secondary-btn black">Забронировать стол</button>
 	</div>
 </section>
