@@ -46,20 +46,24 @@ export default class Modal {
    * The function initializes modal buttons by adding event listeners
    * to open or close the modal based on the button's data attributes.
    */
-  #initModalButtons() {
+	#initModalButtons() {
     const buttonsWithTarget = document.querySelectorAll(`[data-modal-target="${this.#id}"]`);
     const buttonsWithin = this.#target.querySelectorAll('.modal-button');
 
+
     [...buttonsWithTarget, ...buttonsWithin].forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (btn.dataset.clickMode === 'open') {
-          this.show();
-        } else {
-          this.hide();
-        }
-      });
+        console.log(`Button initialized: ${btn.outerHTML}`); // Добавлено для отладки
+        btn.addEventListener('click', () => {
+            if (btn.dataset.clickMode === 'open') {
+                console.log('Opening modal'); // Добавлено для отладки
+                this.show();
+            } else {
+                console.log('Closing modal'); // Добавлено для отладки
+                this.hide();
+            }
+        });
     });
-  }
+}
 
   /** Show the modal window */
   show() {
@@ -73,3 +77,4 @@ export default class Modal {
     this.#target.removeAttribute('open');
   }
 }
+

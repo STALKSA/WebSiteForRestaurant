@@ -1,3 +1,5 @@
+import Modal from './components/modal.js';
+
 if (document.getElementById('feedbacks-slider')) {
   const feedbacksSlider = new Splide('#feedbacks-slider', {
     perPage: 3,
@@ -47,4 +49,44 @@ document.addEventListener('readystatechange', function () {
 document.querySelector('.search-container').addEventListener('submit', (e) => {
   e.preventDefault();
   window.location.href = `index.php?action=search&q=${e.target.elements['search-query'].value}`;
+});
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    Modal.init(); // Инициализация модальных окон
+    
+    // Обработчик формы бронирования
+    const bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            fetch('src/book-table.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Ваш стол успешно забронирован!');
+                    window.modals['booking-modal'].hide(); // Закрываем модальное окно
+                } else {
+                    alert('Произошла ошибка. Попробуйте снова.');
+                }
+            })
+            .catch(error => {
+                alert('Произошла ошибка: ' + error.message);
+            });
+        });
+    }
 });

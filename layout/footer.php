@@ -59,10 +59,10 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous"></script>
-<script src="js/script.js"></script>
+<script src="js/components/modal.js" type="module"></script>
+<script src="js/script.js" type="module"></script>
 <script src="js/menu.js" type="module"></script>
 <script src="js/captcha.js" type="module"></script>
-<script src="js/components/modal.js" type="module"></script>
 <script>
 	document.getElementById('subscribe-form').addEventListener('submit', function(event) {
 		event.preventDefault(); // Предотвращаем перезагрузку страницы
@@ -108,6 +108,33 @@
 </script>
 
 
-</body>
+<div class="modal" id="booking-modal">
+    <div class="modal-content">
+        <h2>Бронирование стола</h2>
+        <form id="booking-form">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Время:</label>
+            <input type="time" id="time" name="time" required>
+            
+            <label for="guests">Количество гостей:</label>
+            <input type="number" id="guests" name="guests" required>
+            
+            <button type="submit" class="btn primary-btn black">Забронировать</button>
+            <button type="button" class="btn secondary-btn black modal-button" data-click-mode="close">Отмена</button>
 
+
+        </form>
+    </div>
+</div>
+
+
+</body>
 </html>
