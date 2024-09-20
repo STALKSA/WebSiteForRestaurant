@@ -109,32 +109,32 @@
 
 
 <div class="modal" id="booking-modal">
-    <div class="modal-content">
-        <h2>Бронирование стола</h2>
-        <form id="booking-form">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" name="phone" required>
-            
-            <label for="date">Дата:</label>
-            <input type="date" id="date" name="date" required>
-            
-            <label for="time">Время:</label>
-            <input type="time" id="time" name="time" required>
-            
-            <label for="guests">Количество гостей:</label>
-            <input type="number" id="guests" name="guests" required>
-            
-            <button type="submit" class="btn primary-btn black">Забронировать</button>
-            <button type="button" class="btn secondary-btn black modal-button" data-click-mode="close">Отмена</button>
+	<div class="modal-content">
+		<h2>Бронирование стола</h2>
+		<form id="booking-form">
+			<label for="name">Имя:</label>
+			<input type="text" id="name" name="name" required>
 
+			<label for="phone">Телефон:</label>
+			<input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}">
 
-        </form>
-    </div>
+			<label for="date">Дата:</label>
+			<input type="date" id="date" name="date" required>
+
+			<label for="time">Время:</label>
+			<input type="time" id="time" name="time" required>
+
+			<label for="guests">Количество гостей:</label>
+			<input type="number" id="guests" name="guests" required min="1" step="1">
+
+			<button type="submit" class="btn primary-btn black">Забронировать</button>
+			<button type="button" class="btn secondary-btn black modal-button" data-click-mode="close">Отмена</button>
+		</form>
+	</div>
 </div>
 
 
+
 </body>
+
 </html>

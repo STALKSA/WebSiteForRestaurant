@@ -56,37 +56,61 @@ document.querySelector('.search-container').addEventListener('submit', (e) => {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    Modal.init(); // Инициализация модальных окон
-    
-    // Обработчик формы бронирования
-    const bookingForm = document.getElementById('booking-form');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+	// Инициализация модальных окон
+	Modal.init();
 
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
+	// Устанавливаем минимальную дату на текущую дату для поля выбора даты
+	const dateInput = document.getElementById('date');
+	const today = new Date().toISOString().split('T')[0]; // Получаем текущую дату в формате YYYY-MM-DD
+	dateInput.setAttribute('min', today);
 
-            fetch('src/book-table.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    alert('Ваш стол успешно забронирован!');
-                    window.modals['booking-modal'].hide(); // Закрываем модальное окно
-                } else {
-                    alert('Произошла ошибка. Попробуйте снова.');
-                }
-            })
-            .catch(error => {
-                alert('Произошла ошибка: ' + error.message);
-            });
-        });
-    }
+	// Обработчик формы бронирования
+	const bookingForm = document.getElementById('booking-form');
+	if (bookingForm) {
+			bookingForm.addEventListener('submit', function(event) {
+					event.preventDefault();
+
+					const formData = new FormData(event.target);
+					const data = Object.fromEntries(formData);
+
+					// Дополнительная проверка на количество гостей
+					const guests = parseInt(data.guests, 10);
+					if (guests < 1) {
+							alert('Количество гостей должно быть не менее 1.');
+							return;
+					}
+
+					// Проверка, чтобы дата не была в прошлом
+					const selectedDate = new Date(data.date);
+					const currentDate = new Date();
+					currentDate.setHours(0, 0, 0, 0); // Убираем время, чтобы сравнивать только даты
+
+					if (selectedDate < currentDate) {
+							alert('Вы не можете выбрать дату из прошлого.');
+							return;
+					}
+
+					fetch('src/book-table.php', {
+							method: 'POST',
+							headers: {
+									'Content-Type': 'application/json'
+							},
+							body: JSON.stringify(data)
+					})
+					.then(response => response.json())
+					.then(data => {
+							if (data.status === 'success') {
+									alert('Ваш стол успешно забронирован!');
+									window.modals['booking-modal'].hide(); // Закрываем модальное окно
+									bookingForm.reset(); // Сброс формы после успешного бронирования
+							} else {
+									alert('Произошла ошибка. Попробуйте снова.');
+							}
+					})
+					.catch(error => {
+							alert('Произошла ошибка: ' + error.message);
+					});
+			});
+	}
 });

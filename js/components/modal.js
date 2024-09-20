@@ -24,7 +24,15 @@ export default class Modal {
 
     [...document.querySelectorAll('.modal')].forEach((modal) => {
       window.modals[modal.id] = new Modal(modal.id);
+			
     });
+		// Закрытие всех модальных окон при нажатии Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        Object.values(window.modals).forEach(modal => modal.hide());
+      }
+    });
+
   }
 
   /**
@@ -32,13 +40,21 @@ export default class Modal {
    * and its child element to handle click events.
    */
   #listenEvents() {
-    this.#target.addEventListener('click', (e) => {
-      const content = this.#target.querySelector('.modal-content');
+    // this.#target.addEventListener('click', (e) => {
+    //   const content = this.#target.querySelector('.modal-content');
 
-      content.style.transform = 'scale(1.05)';
-      setTimeout(() => (content.style.transform = 'none'), 300);
-    });
+    //   content.style.transform = 'scale(1.05)';
+    //   setTimeout(() => (content.style.transform = 'none'), 300);
+    // });
 
+		    // Анимация при клике на фон модального окна
+				this.#target.addEventListener('click', (e) => {
+					if (e.target === this.#target) {
+						this.hide();
+					}
+				});
+
+		// Предотвращение закрытия при клике внутри контента
     this.#target.querySelector('.modal-content').addEventListener('click', (e) => e.stopPropagation());
   }
 
@@ -69,6 +85,11 @@ export default class Modal {
   show() {
     document.body.style.overflow = 'hidden';
     this.#target.setAttribute('open', '');
+		const firstInput = this.#target.querySelector('input, button, textarea, select');
+    if (firstInput) {
+      firstInput.focus();
+    }
+  
   }
 
   /** Hide the modal window */
