@@ -53,7 +53,7 @@ if ($formValid) {
 				<h2>Регистрация</h2>
 
 				<div class="field <?= $ERRORS["login"] ?>">
-					<label for="reg-login">Login</label>
+					<label for="reg-login">Логин</label>
 					<input type="text" name="login" id="reg-login" value="<?= get_val("login") ?>" autocomplete="given-name">
 					<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
 					<span class="error-type required-error">Required</span>

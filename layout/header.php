@@ -62,17 +62,18 @@
 
 					<div class="dropdown-body">
 						<ul>
-							<li>
-								<a href="index.php?action=create-dish"><?= ActiveUser::isAdmin() ? "Create" : "Создать" ?> новое блюдо</a>
-							</li>
+							<?php if (ActiveUser::isAdmin()) { ?>
+								<li>
+									<a href="index.php?action=create-dish">Создать новое блюдо</a>
+								</li>
+							<?php } ?>
 							<li>
 								<a href="index.php?action=logout" style="color: red;">Выйти</a>
 							</li>
 						</ul>
 					</div>
+				<?php } else { ?>
+					<a class="btn primary-btn black" href="index.php?action=login">Войти</a>
+				<?php } ?>
 				</div>
-			<?php } else { ?>
-				<a class="btn primary-btn black" href="index.php?action=login">Войти</a>
-			<?php } ?>
-		</div>
 	</header>
