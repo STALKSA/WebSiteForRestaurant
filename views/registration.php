@@ -56,15 +56,15 @@ if ($formValid) {
 					<label for="reg-login">Логин</label>
 					<input type="text" name="login" id="reg-login" value="<?= get_val("login") ?>" autocomplete="given-name">
 					<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
-					<span class="error-type required-error">Required</span>
-					<span class="error-type invalid-error">Login не валиден!</span>
+					<span class="error-type required-error">Заполните поле</span>
+					<span class="error-type invalid-error">Логин не валиден!</span>
 				</div>
 
 				<div class="field <?= $ERRORS["password"] ?>">
 					<label for="reg-password">Пароль</label>
 					<input type="password" name="password" id="reg-password" value="<?= get_val("password") ?>" autocomplete="new-password">
 					<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
-					<span class="error-type required-error">Required</span>
+					<span class="error-type required-error">Заполните поле</span>
 					<span class="error-type invalid-error">Пароль не валиден!</span>
 				</div>
 
@@ -72,7 +72,7 @@ if ($formValid) {
 					<label for="reg-confirm-password">Подтвердите пароль</label>
 					<input type="password" name="confirm-password" id="reg-confirm-password" value="<?= get_val("confirm-password") ?>" autocomplete="new-password">
 					<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
-					<span class="error-type required-error">Required</span>
+					<span class="error-type required-error">Заполните поле</span>
 					<span class="error-type invalid-error">Пароль не совпал!</span>
 				</div>
 
@@ -80,7 +80,7 @@ if ($formValid) {
 					<label for="reg-email">Email</label>
 					<input type="email" name="email" id="reg-email" value="<?= get_val("email") ?>" autocomplete="email">
 					<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
-					<span class="error-type required-error">Required</span>
+					<span class="error-type required-error">Заполните поле</span>
 					<span class="error-type invalid-error">Email должпен быть формата username@example.com</span>
 				</div>
 
@@ -100,7 +100,7 @@ if ($formValid) {
 						</div>
 					</div>
 
-					<span class="error-type required-error">Required</span>
+					<span class="error-type required-error">Заполните поле</span>
 					<span class="error-type invalid-error">Попробуйте еще раз!</span>
 				</div>
 

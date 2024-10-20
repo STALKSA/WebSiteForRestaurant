@@ -52,21 +52,21 @@ if ($isValid && $isImageUploaded) {
 							<label for="dish-name">Название</label>
 							<input type="text" name="name" id="dish-name" value="<?= get_val("name") ?>">
 							<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
-							<span class="error-type required-error">Required</span>
+							<span class="error-type required-error">Заполните поле</span>
 						</div>
 
 						<div class="field <?= has_error("price") ?>">
 							<label for="dish-price">Цена</label>
 							<input type="number" name="price" id="dish-price" value="<?= get_val("price") ?>">
 							<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
-							<span class="error-type required-error">Required</span>
+							<span class="error-type required-error">Заполните поле</span>
 						</div>
 
 						<div class="field textarea <?= has_error("description") ?>">
 							<label for="dish-description">Описание</label>
 							<textarea name="description" id="dish-description"><?= get_val("description") ?></textarea>
 							<i class="fa fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>
-							<span class="error-type required-error">Required</span>
+							<span class="error-type required-error">Заполните поле</span>
 						</div>
 					</div>
 				</div>

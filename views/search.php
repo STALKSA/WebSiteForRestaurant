@@ -48,8 +48,8 @@ $dishes = $db->query("SELECT * from menu WHERE (name LIKE '%{$search_query}%' OR
 							</div>
 
 							<div class="card-footer">
-								<a href="index.php?action=view-dish&id=<?= $dish['id'] ?>" class="btn secondary-btn black">Озор</a>
-								<strong>$<?= $dish["price"] ?></strong>
+								<a href="index.php?action=view-dish&id=<?= $dish['id'] ?>" class="btn secondary-btn black">Подробнее</a>
+								<strong>₽<?= $dish["price"] ?></strong>
 							</div>
 						</div>
 					</div>
