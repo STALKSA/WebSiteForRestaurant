@@ -8,7 +8,7 @@
 	<title>
 		<?= PAGE_TITLES[isset($_GET["action"]) ? $_GET["action"] : "main"] ?>
 	</title>
-	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="img/icon-soup.png" type="image/x-icon">
 
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
