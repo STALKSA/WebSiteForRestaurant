@@ -1,39 +1,61 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "root";
-$dbname = "my_restaurant";
 
-// Создание соединения
+require __DIR__ . '/../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+
+$servername = $_ENV['DB_HOST'];
+$username = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASSWORD'];
+$dbname = $_ENV['DB_NAME'];
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Проверка соединения
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+// Получаем ID последнего добавленного блюда
+$lastDishId = $conn->insert_id;
+$dishQuery = $conn->prepare("SELECT name, description, price FROM menu WHERE id = ?");
+$dishQuery->bind_param("i", $lastDishId);
+$dishQuery->execute();
+$dishQuery->bind_result($dishName, $dishDescription, $dishPrice);
+$dishQuery->fetch();
+$dishQuery->close();
 
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $stmt = $conn->prepare("INSERT INTO subscribers (email) VALUES (?)");
-        if ($stmt === false) {
-            die("Prepare failed: " . $conn->error);
-        }
+// Получаем всех подписчиков
+$subscribersQuery = $conn->query("SELECT email FROM subscribers");
 
-        $stmt->bind_param("s", $email);
+if ($subscribersQuery->num_rows > 0) {
+    // Подготавливаем письмо
+    $subject = "Новое блюдо: $dishName";
+    $message = "
+        <html>
+        <head>
+            <title>Новое блюдо в меню</title>
+        </head>
+        <body>
+            <h1>$dishName</h1>
+            <p>$dishDescription</p>
+            <p>Цена: $dishPrice</p>
+        </body>
+        </html>
+    ";
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: your-email@gmail.com" . "\r\n";
 
-        if ($stmt->execute()) {
-            echo "success";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-
-        $stmt->close();
-    } else {
-        echo "invalid";
+    // Отправляем письмо каждому подписчику
+    while ($row = $subscribersQuery->fetch_assoc()) {
+        $to = $row['email'];
+        mail($to, $subject, $message, $headers);
     }
 }
 
 $conn->close();
-?>
