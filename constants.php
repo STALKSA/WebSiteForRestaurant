@@ -12,6 +12,7 @@ const PAGE_TITLES = [
 	"view-dish" => "Просмотреть блюдо | MyRestaurant",
 	"edit-dish" => "Редактировать блюдо | MyRestaurant",
 	"delete-dish" => "Удалить блюдо | MyRestaurant",
+	"cart" => "Корзина | MyRestaurant",
 	"privacy-policy" => "Политика | MyRestaurant"
 ];
 

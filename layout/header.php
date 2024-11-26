@@ -46,6 +46,10 @@
 					<li><a href="index.php">Главная</a></li>
 					<li><a href="index.php?action=about">О нас</a></li>
 					<li><a href="index.php?action=menu">Меню</a></li>
+					<li><a href="index.php?action=cart">
+					<img src="img/icons/add-to-cart.png" alt="Корзина" style="width: 40px; height: auto;">
+					<span id="cart-count">0</span> <!-- Количество товаров в корзине -->
+					</a></li>
 				</ul>
 			</nav>
 

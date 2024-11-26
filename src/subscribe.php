@@ -1,10 +1,16 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "root";
-$dbname = "my_restaurant";
+require __DIR__ . '/../vendor/autoload.php';
 
-// Создание соединения
+use Dotenv\Dotenv;
+
+// Загрузка .env файла
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+$servername = $_ENV['DB_HOST'];
+$username = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASSWORD'];
+$dbname = $_ENV['DB_NAME'];
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Проверка соединения

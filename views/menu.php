@@ -21,6 +21,7 @@ $dishes = $isAdmin
 
 ?>
 
+<body>
 <main>
 	<section class="menu-section">
 		<div class="section-text center">
@@ -57,7 +58,12 @@ $dishes = $isAdmin
 
 						<div class="card-footer">
 							<a href="index.php?action=view-dish&id=<?= $dish['id'] ?>" class="btn secondary-btn black">Подробнее</a>
-							<strong>₽<?= $dish["price"] ?></strong>
+							<div class="price-and-cart">
+                        <strong>₽<?= $dish["price"] ?></strong>
+                        <button class="btn cart-btn" data-product-id="<?= $dish['id'] ?>" title="Добавить в корзину">
+                            <i class="fa fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
 						</div>
 					</div>
 				</div>
@@ -79,6 +85,54 @@ $dishes = $isAdmin
 		</div>
 	</section>
 </main>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем все кнопки для добавления в корзину
+    const cartButtons = document.querySelectorAll('.cart-btn');
+
+    cartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Получаем ID продукта из атрибута data-product-id
+            const productId = this.getAttribute('data-product-id');
+            
+            // Отправляем запрос на сервер для добавления товара в корзину
+            fetch('add-to-cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `product_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Обновляем счетчик корзины
+                    const cartCount = document.getElementById('cart-count');
+                    cartCount.textContent = data.cartTotalItems;
+
+                    // Выводим уведомление об успешном добавлении
+                    alert('Товар добавлен в корзину!');
+                } else {
+                    alert('Ошибка при добавлении товара в корзину.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
+
+document.querySelectorAll('.delete-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const dishId = this.getAttribute('data-id');
+        document.getElementById('confirm-delete-button').href = `index.php?action=delete-dish&id=${dishId}`;
+    });
+});
+</script>
+
+
+</body>
 
 <div class="modal" id="confirm-delete-modal">
 	<div class="modal-content">
