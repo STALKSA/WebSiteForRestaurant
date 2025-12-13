@@ -89,7 +89,7 @@
 						messageElement.style.display = 'block';
 						messageElement.style.color = 'red';
 					} else {
-						messageElement.textContent = 'Произошла ошибка. Попробуйте позже. ' + data;
+						messageElement.textContent = '' + data;
 						messageElement.style.display = 'block';
 						messageElement.style.color = 'red';
 					}

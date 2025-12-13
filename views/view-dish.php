@@ -30,7 +30,8 @@ if (isset($_GET["id"])) {
                 <div class="dish-details">
                     <h2><?= $dish['name'] ?></h2>
                     <p class="description"><?= $dish['description'] ?></p>
-                    <strong class="price">₽<?= $dish['price'] ?></strong>
+										<strong class="price">₽<?= $dish['price'] ?></strong>
+										
 
                     <!-- Отображаем информацию об авторе и дате только если пользователь - админ -->
                     <?php if ($isAdmin) { ?>

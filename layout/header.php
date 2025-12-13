@@ -1,3 +1,9 @@
+<?php
+$cartCount = isset($_SESSION['cart'])
+	? array_sum(array_column($_SESSION['cart'], 'quantity'))
+	: 0;
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -46,6 +52,10 @@
 					<li><a href="index.php">Главная</a></li>
 					<li><a href="index.php?action=about">О нас</a></li>
 					<li><a href="index.php?action=menu">Меню</a></li>
+					<li><a href="index.php?action=cart">
+							<img src="img/icons/add-to-cart.png" alt="Корзина" style="width: 40px; height: auto;">
+							<span id="cart-count"><?= $cartCount ?></span> <!-- Количество товаров в корзине -->
+						</a></li>
 				</ul>
 			</nav>
 
