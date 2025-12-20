@@ -13,7 +13,8 @@ const PAGE_TITLES = [
 	"edit-dish" => "Редактировать блюдо | MyRestaurant",
 	"delete-dish" => "Удалить блюдо | MyRestaurant",
 	"cart" => "Корзина | MyRestaurant",
-	"privacy-policy" => "Политика | MyRestaurant"
+	"privacy-policy" => "Политика | MyRestaurant",
+	"process_order" => "Заказ оформлен | MyRestaurant"
 ];
 
 const UPLOADS_DIR = "uploads/";
