@@ -62,13 +62,13 @@ foreach ($cartItems as $item) {
 			<section class="order-form">
 				<h2>Данные заказчика</h2>
 
-				<form action="process_order.php" method="POST">
+				<form action="/restoran/views/process_order.php" method="POST">
 					<label for="address">Адрес доставки</label>
 					<input type="text" id="address" name="address" required placeholder="Адрес доставки">
 
 					<label for="name">Получатель</label>
 					<input type="text" id="name" name="name" required placeholder="Имя">
-					<input type="email" id="email" name="email" required placeholder="Email">
+					<input type="email" id="email" name="email" placeholder="Email">
 					<input type="tel" id="phone" name="phone" required placeholder="+7">
 
 					<label>Способ доставки</label>
@@ -87,7 +87,7 @@ foreach ($cartItems as $item) {
 						</label>
 					</div>
 
-					<button type="submit" class="btn primary-btn">Продолжить</button>
+					<button type="submit" class="btn primary-btn">Оформить заказ</button>
 				</form>
 			</section>
 		<?php endif; ?>
@@ -202,6 +202,38 @@ foreach ($cartItems as $item) {
 			document.getElementById('total-amount').innerText =
 				total.toLocaleString('ru-RU') + ' руб.';
 		}
+
+
+		//успешное сообщение после формирования заказа
+
+		document.querySelector('form').addEventListener('submit', function(event) {
+			event.preventDefault(); // Останавливаем отправку формы
+
+			// Получаем данные формы
+			const formData = new FormData(this);
+
+			// Логирование данных формы для отладки
+			console.log(formData);
+
+			fetch('/restoran/views/process_order.php', {
+					method: 'POST',
+					body: formData
+				})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						alert(data.message); // Показываем сообщение о успешном оформлении
+						// Перенаправляем на страницу с благодарностью или главную страницу
+						window.location.href = "index.php";
+					} else {
+						alert(data.message); // Показываем сообщение об ошибке
+					}
+				})
+				.catch(error => {
+					console.error('Ошибка:', error);
+					alert('Произошла ошибка. Попробуйте снова.');
+				});
+		});
 	</script>
 
 </body>

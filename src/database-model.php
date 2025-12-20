@@ -10,7 +10,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 /** The class which is used for easy interacting with a database */
 class DatabaseModel {
-	protected mysqli $db;
+	public mysqli $db;
 	protected array $props;
 	protected string $current_table = '';
 
@@ -102,7 +102,7 @@ class DatabaseModel {
 	 */
 	public function create(array $record): void {
 		$columns = join(", ", array_keys($record));
-		$values = join(", ", array_map(fn ($item) => "'{$this->db->escape_string($item)}'", array_values($record)));
+		$values = join(", ", array_map(fn($item) => "'{$this->db->escape_string($item)}'", array_values($record)));
 
 		$this->query("INSERT INTO {$this->props['name']}.{$this->current_table} ({$columns}) VALUES ({$values});");
 	}
@@ -120,7 +120,7 @@ class DatabaseModel {
 		if (empty($this->find("id = {$id}"))) {
 
 			$values = join(", ", array_map(
-				fn ($k, $v) => "{$k} = '{$this->db->escape_string($v)}'",
+				fn($k, $v) => "{$k} = '{$this->db->escape_string($v)}'",
 				array_keys($record),
 				array_values($record)
 			));

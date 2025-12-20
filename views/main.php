@@ -4,8 +4,8 @@
 			<h1>Почувствуйте настоящий вкус <strong>Лучших блюд</strong></h1>
 			<p class="section-description">Ощутите настоящий вкус <strong>блюд</strong></p>
 			<div class="buttons">
-			<button class="btn secondary-btn white" data-modal-target="booking-modal" data-click-mode="open">Забронировать стол</button>
-				<button class="btn secondary-btn white">Заказать онлайн</button>
+				<button class="btn secondary-btn white" data-modal-target="booking-modal" data-click-mode="open">Забронировать стол</button>
+				<a href="index.php?action=menu" class="btn secondary-btn white">Заказать онлайн</a>
 			</div>
 		</div>
 	</section>
