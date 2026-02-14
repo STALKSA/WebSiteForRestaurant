@@ -62,7 +62,7 @@ foreach ($cartItems as $item) {
 			<section class="order-form">
 				<h2>Данные заказчика</h2>
 
-				<form action="/restoran/views/process_order.php" method="POST">
+				<form action="/restoran/views/process-order.php" method="POST">
 					<label for="address">Адрес доставки</label>
 					<input type="text" id="address" name="address" required placeholder="Адрес доставки">
 
@@ -206,34 +206,7 @@ foreach ($cartItems as $item) {
 
 		//успешное сообщение после формирования заказа
 
-		document.querySelector('form').addEventListener('submit', function(event) {
-			event.preventDefault(); // Останавливаем отправку формы
-
-			// Получаем данные формы
-			const formData = new FormData(this);
-
-			// Логирование данных формы для отладки
-			console.log(formData);
-
-			fetch('/restoran/views/process_order.php', {
-					method: 'POST',
-					body: formData
-				})
-				.then(response => response.json())
-				.then(data => {
-					if (data.success) {
-						alert(data.message); // Показываем сообщение о успешном оформлении
-						// Перенаправляем на страницу с благодарностью или главную страницу
-						window.location.href = "index.php";
-					} else {
-						alert(data.message); // Показываем сообщение об ошибке
-					}
-				})
-				.catch(error => {
-					console.error('Ошибка:', error);
-					alert('Произошла ошибка. Попробуйте снова.');
-				});
-		});
+		
 	</script>
 
 </body>
