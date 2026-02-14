@@ -14,7 +14,8 @@ const PAGE_TITLES = [
 	"delete-dish" => "Удалить блюдо | MyRestaurant",
 	"cart" => "Корзина | MyRestaurant",
 	"privacy-policy" => "Политика | MyRestaurant",
-	"process_order" => "Заказ оформлен | MyRestaurant"
+	"process-order" => "Заказ оформлен | MyRestaurant",
+	"order-success" => "Заказ оформлен | MyRestaurant"
 ];
 
 const UPLOADS_DIR = "uploads/";
